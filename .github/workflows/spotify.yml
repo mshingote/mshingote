@@ -30,7 +30,30 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add assets/spotify.svg
-          git diff --cached --quiet && exit 0
+
+          if git diff --quiet -- assets/spotify.svg; then
+            exit 0
+          fi
+
+          # GitHub caches README images aggressively. Change the image URL whenever
+          # the card changes so the profile fetches the newly generated SVG.
+          CACHE_KEY="$(date +%s)"
+          python - "$CACHE_KEY" <<'PY'
+          import re
+          import sys
+
+          path = "README.md"
+          cache_key = sys.argv[1]
+          text = open(path, encoding="utf-8").read()
+          url = "https://raw.githubusercontent.com/mshingote/mshingote/main/assets/spotify.svg"
+          pattern = re.escape(url) + r"(?:\\?v=[^)]*)?"
+          replacement = f"{url}?v={cache_key}"
+          text, count = re.subn(pattern, replacement, text)
+          if count != 1:
+              raise SystemExit(f"Expected one Spotify card URL in README, found {count}")
+          open(path, "w", encoding="utf-8").write(text)
+          PY
+
+          git add assets/spotify.svg README.md
           git commit -m "chore: update Spotify now playing"
           git push
