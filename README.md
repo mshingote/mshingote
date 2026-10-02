@@ -4,6 +4,6 @@ Windows endpoint engineer working with C++, Windows internals, security, network
 
 ## 🎧 Now Playing
 
-[![Spotify Now Playing](./assets/spotify.svg)](https://open.spotify.com/)
+[![Spotify Now Playing](https://raw.githubusercontent.com/mshingote/mshingote/main/assets/spotify.svg?v=1)](https://open.spotify.com/)
 
 <sub>Automatically updated from Spotify by GitHub Actions.</sub>
