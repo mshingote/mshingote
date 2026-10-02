@@ -56,4 +56,5 @@ jobs:
 
           git add assets/spotify.svg README.md
           git commit -m "chore: update Spotify now playing"
-          git push
+          git pull --rebase origin main
+          git push origin main
