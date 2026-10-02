@@ -4,6 +4,6 @@ Windows endpoint engineer working with C++, Windows internals, security, network
 
 ## 🎧 Now Playing
 
-[![Spotify Now Playing](https://raw.githubusercontent.com/mshingote/mshingote/main/assets/spotify.svg?v=1790971635)](https://open.spotify.com/)
+[![Spotify Now Playing](https://raw.githubusercontent.com/mshingote/mshingote/main/assets/spotify.svg?v=1790971851)](https://open.spotify.com/)
 
 <sub>Automatically updated from Spotify by GitHub Actions. · <a href="./SPOTIFY_SETUP.md">How I built this →</a></sub>
