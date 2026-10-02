@@ -1,3 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="120" role="img" aria-label="Spotify status">
-<style>.bg{fill:#0d1117}.t{fill:#f0f6fc;font:600 18px sans-serif}.s{fill:#1DB954;font:700 11px sans-serif}</style>
-<rect class="bg" width="560" height="120" rx="12"/><text class="s" x="28" y="43">SPOTIFY</text><text class="t" x="28" y="75">Waiting for first update…</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="120" role="img" aria-label="Spotify: Hey Brother - Extended Version by Avicii">
+  <style>
+    .bg { fill: #0d1117; }
+    .title { fill: #f0f6fc; font: 600 18px -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif; }
+    .artist { fill: #8b949e; font: 14px -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif; }
+    .status { fill: #1DB954; font: 700 11px -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif; letter-spacing: 1px; }
+    .note { fill: #1DB954; font: 700 32px sans-serif; }
+  </style>
+  <rect class="bg" width="560" height="120" rx="12"/>
+  <circle cx="55" cy="60" r="34" fill="#161b22"/>
+  <text class="note" x="43" y="71">♫</text>
+  <text class="status" x="105" y="37">NOW PLAYING ON SPOTIFY</text>
+  <text class="title" x="105" y="66">Hey Brother - Extended Version</text>
+  <text class="artist" x="105" y="91">Avicii</text>
+  <a href="https://open.spotify.com/track/4f1PgGgzxo6fHH98jt1cK0" target="_blank"><rect x="0" y="0" width="560" height="120" fill="transparent"/></a>
+</svg>
