@@ -95,7 +95,6 @@ else:
 ratio = min(1.0, progress / duration)
 bar_x, bar_y, bar_w = 226, 172, 514
 progress_w = round(bar_w * ratio, 1)
-remaining = max(0.1, (duration - progress) / 1000)
 album_line = shorten(album, 58)
 title_line = shorten(title, 48)
 artists_line = shorten(artists, 58)
@@ -123,25 +122,10 @@ for i, (x, h, dur) in enumerate([(690, 18, 0.72), (700, 28, 0.91), (710, 22, 0.6
     else:
         equalizer += f'<rect x="{x}" y="57" width="5" height="8" rx="2.5" class="eq muted"/>'
 
+# GitHub does not support SVG animation in rendered repository/profile images.
+# Show only the exact progress_ms snapshot returned by Spotify at generation time.
 progress_animation = ""
 elapsed_time = f'<text class="time" x="{bar_x}" y="198">{clock(progress)}</text>'
-if playing and progress < duration:
-    progress_animation = (
-        f'<animate attributeName="width" from="{progress_w}" to="{bar_w}" '
-        f'dur="{remaining:.1f}s" fill="freeze"/>'
-    )
-
-    # SVG cannot numerically increment formatted MM:SS text, so build one
-    # discrete SMIL animation containing the remaining second labels.
-    start_second = max(0, progress // 1000)
-    end_second = max(start_second, duration // 1000)
-    labels = ";".join(clock(second * 1000) for second in range(start_second, end_second + 1))
-    elapsed_time = (
-        f'<text class="time" x="{bar_x}" y="198">'
-        f'<animate attributeName="textContent" values="{labels}" '
-        f'dur="{remaining:.1f}s" calcMode="discrete" fill="freeze"/>'
-        f'{clock(progress)}</text>'
-    )
 
 svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="800" height="220" viewBox="0 0 800 220"
  role="img" aria-label="Spotify: {esc(title)} by {esc(artists)}">
