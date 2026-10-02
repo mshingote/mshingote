@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="800" height="220" viewBox="0 0 800 220"
- role="img" aria-label="Spotify: SOS (feat. Aloe Blacc) by Avicii, Aloe Blacc">
+ role="img" aria-label="Spotify: Nothing playing right now by Spotify">
   <defs>
     <clipPath id="coverClip"><rect x="34" y="34" width="152" height="152" rx="16"/></clipPath>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -27,24 +27,24 @@
   </style>
 
   <rect class="card" x="0.5" y="0.5" width="799" height="219" rx="18"/>
-  <image href="https://i.scdn.co/image/ab67616d0000b273660ee24281a547103f466ff5" x="34" y="34" width="152" height="152" preserveAspectRatio="xMidYMid slice" clip-path="url(#coverClip)"/>
+  <rect x="34" y="34" width="152" height="152" rx="16" class="coverFallback"/><text x="110" y="128" text-anchor="middle" class="musicNote">♫</text>
 
   <circle cx="226" cy="51" r="5" fill="#1ed760"/>
-  <text class="status" x="240" y="55">NOW PLAYING ON SPOTIFY</text>
-  <rect x="690" y="52.0" width="5" height="18" rx="2.5" class="eq"><animate attributeName="height" values="18;6;12.6;18" dur="0.72s" repeatCount="indefinite"/><animate attributeName="y" values="52.0;58;54.7;52.0" dur="0.72s" repeatCount="indefinite"/></rect><rect x="700" y="47.0" width="5" height="28" rx="2.5" class="eq"><animate attributeName="height" values="28;6;19.6;28" dur="0.91s" repeatCount="indefinite"/><animate attributeName="y" values="47.0;58;51.2;47.0" dur="0.91s" repeatCount="indefinite"/></rect><rect x="710" y="50.0" width="5" height="22" rx="2.5" class="eq"><animate attributeName="height" values="22;6;15.4;22" dur="0.63s" repeatCount="indefinite"/><animate attributeName="y" values="50.0;58;53.3;50.0" dur="0.63s" repeatCount="indefinite"/></rect><rect x="720" y="45.0" width="5" height="32" rx="2.5" class="eq"><animate attributeName="height" values="32;6;22.4;32" dur="0.84s" repeatCount="indefinite"/><animate attributeName="y" values="45.0;58;49.8;45.0" dur="0.84s" repeatCount="indefinite"/></rect><rect x="730" y="53.0" width="5" height="16" rx="2.5" class="eq"><animate attributeName="height" values="16;6;11.2;16" dur="0.76s" repeatCount="indefinite"/><animate attributeName="y" values="53.0;58;55.4;53.0" dur="0.76s" repeatCount="indefinite"/></rect>
+  <text class="status" x="240" y="55">OFFLINE ON SPOTIFY</text>
+  <rect x="690" y="57" width="5" height="8" rx="2.5" class="eq muted"/><rect x="700" y="57" width="5" height="8" rx="2.5" class="eq muted"/><rect x="710" y="57" width="5" height="8" rx="2.5" class="eq muted"/><rect x="720" y="57" width="5" height="8" rx="2.5" class="eq muted"/><rect x="730" y="57" width="5" height="8" rx="2.5" class="eq muted"/>
 
-  <text class="title" x="226" y="94">SOS (feat. Aloe Blacc)</text>
-  <text class="artist" x="226" y="121">Avicii, Aloe Blacc</text>
-  <text class="album" x="226" y="145">TIM</text>
+  <text class="title" x="226" y="94">Nothing playing right now</text>
+  <text class="artist" x="226" y="121">Spotify</text>
+  <text class="album" x="226" y="145">Check back later</text>
 
   <rect class="track" x="226" y="172" width="514" height="5" rx="2.5"/>
-  <rect class="played" x="226" y="172" width="311.4" height="5" rx="2.5">
-    <animate attributeName="width" from="311.4" to="514" dur="62.0s" fill="freeze"/>
+  <rect class="played" x="226" y="172" width="0.0" height="5" rx="2.5">
+    
   </rect>
-  <text class="time" x="226" y="198"><animate attributeName="textContent" values="1:35;1:36;1:37;1:38;1:39;1:40;1:41;1:42;1:43;1:44;1:45;1:46;1:47;1:48;1:49;1:50;1:51;1:52;1:53;1:54;1:55;1:56;1:57;1:58;1:59;2:00;2:01;2:02;2:03;2:04;2:05;2:06;2:07;2:08;2:09;2:10;2:11;2:12;2:13;2:14;2:15;2:16;2:17;2:18;2:19;2:20;2:21;2:22;2:23;2:24;2:25;2:26;2:27;2:28;2:29;2:30;2:31;2:32;2:33;2:34;2:35;2:36;2:37" dur="62.0s" calcMode="discrete" fill="freeze"/>1:35</text>
-  <text class="time" x="740" y="198" text-anchor="end">2:37</text>
+  <text class="time" x="226" y="198">0:00</text>
+  <text class="time" x="740" y="198" text-anchor="end">0:00</text>
 
-  <a href="https://open.spotify.com/track/2x0RZdkZcD8QRI53XT4GI5" target="_blank">
+  <a href="https://open.spotify.com/" target="_blank">
     <rect x="0" y="0" width="800" height="220" rx="18" fill="transparent"/>
   </a>
 </svg>
