@@ -30,6 +30,22 @@ def request(url, *, data=None, headers=None):
 def esc(value):
     return html.escape(str(value), quote=True)
 
+def embed_image(url):
+    """Download artwork and return a self-contained data URI for the SVG."""
+    if not url:
+        return ""
+    try:
+        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=15) as r:
+            data = r.read()
+            content_type = (r.headers.get_content_type() or "image/jpeg").lower()
+            if not content_type.startswith("image/"):
+                content_type = "image/jpeg"
+            return f"data:{content_type};base64,{base64.b64encode(data).decode('ascii')}"
+    except Exception as e:
+        print(f"Warning: could not embed Spotify artwork: {e}")
+        return ""
+
 def shorten(value, limit):
     value = str(value or "")
     return value if len(value) <= limit else value[:limit - 1].rstrip() + "…"
@@ -84,10 +100,12 @@ album_line = shorten(album, 58)
 title_line = shorten(title, 48)
 artists_line = shorten(artists, 58)
 
+embedded_artwork = embed_image(artwork)
+
 art = (
-    f'<image href="{esc(artwork)}" x="34" y="34" width="152" height="152" '
+    f'<image href="{embedded_artwork}" x="34" y="34" width="152" height="152" '
     f'preserveAspectRatio="xMidYMid slice" clip-path="url(#coverClip)"/>'
-    if artwork else
+    if embedded_artwork else
     '<rect x="34" y="34" width="152" height="152" rx="16" class="coverFallback"/>'
     '<text x="110" y="128" text-anchor="middle" class="musicNote">♫</text>'
 )
