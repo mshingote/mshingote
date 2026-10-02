@@ -46,7 +46,7 @@ jobs:
           cache_key = sys.argv[1]
           text = open(path, encoding="utf-8").read()
           url = "https://raw.githubusercontent.com/mshingote/mshingote/main/assets/spotify.svg"
-          pattern = re.escape(url) + r"(?:\\?v=[^)]*)?"
+          pattern = re.escape(url) + r"[^)]*"
           replacement = f"{url}?v={cache_key}"
           text, count = re.subn(pattern, replacement, text)
           if count != 1:
