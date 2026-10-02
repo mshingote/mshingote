@@ -106,10 +106,23 @@ for i, (x, h, dur) in enumerate([(690, 18, 0.72), (700, 28, 0.91), (710, 22, 0.6
         equalizer += f'<rect x="{x}" y="57" width="5" height="8" rx="2.5" class="eq muted"/>'
 
 progress_animation = ""
+elapsed_time = f'<text class="time" x="{bar_x}" y="198">{clock(progress)}</text>'
 if playing and progress < duration:
     progress_animation = (
         f'<animate attributeName="width" from="{progress_w}" to="{bar_w}" '
         f'dur="{remaining:.1f}s" fill="freeze"/>'
+    )
+
+    # SVG cannot numerically increment formatted MM:SS text, so build one
+    # discrete SMIL animation containing the remaining second labels.
+    start_second = max(0, progress // 1000)
+    end_second = max(start_second, duration // 1000)
+    labels = ";".join(clock(second * 1000) for second in range(start_second, end_second + 1))
+    elapsed_time = (
+        f'<text class="time" x="{bar_x}" y="198">'
+        f'<animate attributeName="textContent" values="{labels}" '
+        f'dur="{remaining:.1f}s" calcMode="discrete" fill="freeze"/>'
+        f'{clock(progress)}</text>'
     )
 
 svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="800" height="220" viewBox="0 0 800 220"
@@ -155,7 +168,7 @@ svg = f"""<svg xmlns="http://www.w3.org/2000/svg" width="800" height="220" viewB
   <rect class="played" x="{bar_x}" y="{bar_y}" width="{progress_w}" height="5" rx="2.5">
     {progress_animation}
   </rect>
-  <text class="time" x="{bar_x}" y="198">{clock(progress)}</text>
+  {elapsed_time}
   <text class="time" x="{bar_x + bar_w}" y="198" text-anchor="end">{clock(duration)}</text>
 
   <a href="{esc(url)}" target="_blank">
