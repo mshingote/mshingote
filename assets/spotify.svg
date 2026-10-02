@@ -1,16 +1,50 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="120" role="img" aria-label="Spotify: Hey Brother - Extended Version by Avicii">
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="220" viewBox="0 0 800 220"
+ role="img" aria-label="Spotify: Матушка by Татьяна Куртукова">
+  <defs>
+    <clipPath id="coverClip"><rect x="34" y="34" width="152" height="152" rx="16"/></clipPath>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" class="bgA"/><stop offset="100%" class="bgB"/>
+    </linearGradient>
+  </defs>
   <style>
-    .bg { fill: #0d1117; }
-    .title { fill: #f0f6fc; font: 600 18px -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif; }
-    .artist { fill: #8b949e; font: 14px -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif; }
-    .status { fill: #1DB954; font: 700 11px -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif; letter-spacing: 1px; }
-    .note { fill: #1DB954; font: 700 32px sans-serif; }
+    .bgA { stop-color:#0d1117; } .bgB { stop-color:#111820; }
+    .card { fill:url(#bg); stroke:#30363d; stroke-width:1; }
+    .title { fill:#f0f6fc; font:600 23px -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; }
+    .artist { fill:#c9d1d9; font:500 16px -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; }
+    .album { fill:#8b949e; font:14px -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; }
+    .status { fill:#1ed760; font:700 12px -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; letter-spacing:1.5px; }
+    .time { fill:#8b949e; font:12px -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; }
+    .eq { fill:#1ed760; } .muted { opacity:.55; }
+    .track { fill:#30363d; } .played { fill:#1ed760; }
+    .coverFallback { fill:#161b22; stroke:#30363d; }
+    .musicNote { fill:#1ed760; font:700 48px sans-serif; }
+    @media (prefers-color-scheme: light) {
+      .bgA { stop-color:#ffffff; } .bgB { stop-color:#f6f8fa; }
+      .card { stroke:#d0d7de; } .title { fill:#1f2328; }
+      .artist { fill:#424a53; } .album,.time { fill:#656d76; }
+      .track { fill:#d8dee4; } .coverFallback { fill:#f6f8fa; stroke:#d0d7de; }
+    }
   </style>
-  <rect class="bg" width="560" height="120" rx="12"/>
-  <circle cx="55" cy="60" r="34" fill="#161b22"/>
-  <text class="note" x="43" y="71">♫</text>
-  <text class="status" x="105" y="37">NOW PLAYING ON SPOTIFY</text>
-  <text class="title" x="105" y="66">Hey Brother - Extended Version</text>
-  <text class="artist" x="105" y="91">Avicii</text>
-  <a href="https://open.spotify.com/track/4f1PgGgzxo6fHH98jt1cK0" target="_blank"><rect x="0" y="0" width="560" height="120" fill="transparent"/></a>
+
+  <rect class="card" x="0.5" y="0.5" width="799" height="219" rx="18"/>
+  <image href="https://i.scdn.co/image/ab67616d0000b27366d1cde681f3dc3b8fea37e1" x="34" y="34" width="152" height="152" preserveAspectRatio="xMidYMid slice" clip-path="url(#coverClip)"/>
+
+  <circle cx="226" cy="51" r="5" fill="#1ed760"/>
+  <text class="status" x="240" y="55">NOW PLAYING ON SPOTIFY</text>
+  <rect x="690" y="52.0" width="5" height="18" rx="2.5" class="eq"><animate attributeName="height" values="18;6;12.6;18" dur="0.72s" repeatCount="indefinite"/><animate attributeName="y" values="52.0;58;54.7;52.0" dur="0.72s" repeatCount="indefinite"/></rect><rect x="700" y="47.0" width="5" height="28" rx="2.5" class="eq"><animate attributeName="height" values="28;6;19.6;28" dur="0.91s" repeatCount="indefinite"/><animate attributeName="y" values="47.0;58;51.2;47.0" dur="0.91s" repeatCount="indefinite"/></rect><rect x="710" y="50.0" width="5" height="22" rx="2.5" class="eq"><animate attributeName="height" values="22;6;15.4;22" dur="0.63s" repeatCount="indefinite"/><animate attributeName="y" values="50.0;58;53.3;50.0" dur="0.63s" repeatCount="indefinite"/></rect><rect x="720" y="45.0" width="5" height="32" rx="2.5" class="eq"><animate attributeName="height" values="32;6;22.4;32" dur="0.84s" repeatCount="indefinite"/><animate attributeName="y" values="45.0;58;49.8;45.0" dur="0.84s" repeatCount="indefinite"/></rect><rect x="730" y="53.0" width="5" height="16" rx="2.5" class="eq"><animate attributeName="height" values="16;6;11.2;16" dur="0.76s" repeatCount="indefinite"/><animate attributeName="y" values="53.0;58;55.4;53.0" dur="0.76s" repeatCount="indefinite"/></rect>
+
+  <text class="title" x="226" y="94">Матушка</text>
+  <text class="artist" x="226" y="121">Татьяна Куртукова</text>
+  <text class="album" x="226" y="145">Матушка</text>
+
+  <rect class="track" x="226" y="172" width="514" height="5" rx="2.5"/>
+  <rect class="played" x="226" y="172" width="198.4" height="5" rx="2.5">
+    <animate attributeName="width" from="198.4" to="514" dur="106.2s" fill="freeze"/>
+  </rect>
+  <text class="time" x="226" y="198">1:06</text>
+  <text class="time" x="740" y="198" text-anchor="end">2:52</text>
+
+  <a href="https://open.spotify.com/track/1K6axkQVqzv1votwRFy9FB" target="_blank">
+    <rect x="0" y="0" width="800" height="220" rx="18" fill="transparent"/>
+  </a>
 </svg>
