@@ -4,6 +4,7 @@ import json
 import os
 import urllib.parse
 import urllib.request
+from urllib.error import HTTPError
 
 CLIENT_ID = os.environ["SPOTIFY_CLIENT_ID"]
 CLIENT_SECRET = os.environ["SPOTIFY_CLIENT_SECRET"]
@@ -11,10 +12,23 @@ REFRESH_TOKEN = os.environ["SPOTIFY_REFRESH_TOKEN"]
 
 def request(url, *, data=None, headers=None):
     req = urllib.request.Request(url, data=data, headers=headers or {})
-    with urllib.request.urlopen(req, timeout=15) as r:
-        if r.status == 204:
-            return None
-        return json.loads(r.read().decode())
+    try:
+        with urllib.request.urlopen(req, timeout=15) as r:
+            if r.status == 204:
+                return None
+            return json.loads(r.read().decode())
+    except HTTPError as e:
+        body = e.read().decode("utf-8", errors="replace")
+        try:
+            payload = json.loads(body)
+            detail = payload.get("error", payload)
+            if isinstance(detail, dict):
+                message = detail.get("message", json.dumps(detail))
+            else:
+                message = str(detail)
+        except (json.JSONDecodeError, AttributeError):
+            message = body[:500] or e.reason
+        raise RuntimeError(f"Spotify API HTTP {e.code}: {message}") from None
 
 basic = base64.b64encode(f"{CLIENT_ID}:{CLIENT_SECRET}".encode()).decode()
 token = request(
